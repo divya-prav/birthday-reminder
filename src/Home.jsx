@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Message from "./Message";
 
 export default function Home({ data }) {
   const [people, setPeople] = useState(data);
@@ -35,10 +36,10 @@ export default function Home({ data }) {
 
   const messageButton = {
     backgroundColor: "#1F2544",
-    padding: "10px 10px",
+    padding: "5px 10px",
     color: "white",
     width: "100px",
-    margin: "20%",
+    margin: "30px 1px 1px 5px",
   };
   function handleClick() {
     if (people.length > 1) {
@@ -57,12 +58,12 @@ export default function Home({ data }) {
             <div>
             <img src={profile.image} style={imageStyle} />
             </div>
-            <div style={{ display:'flex',flexDirection:'column' }}>
-              <p style={{padding:'0px'}}>{profile.name}</p>
-              <p>{profile.age} years</p>
+            <div>
+              <p style={{padding:'0px',margin:'30px 1px 1px 5px'}}><strong>{profile.name}</strong></p>
+              <p style={{padding:'0px',margin:'1px'}}><strong>{profile.age} years</strong></p>
             </div>
             <div>
-              <button style={messageButton}>message</button>
+              <button style={messageButton} onClick={<Message/>}>message</button>
             </div>
           </div>
         );
